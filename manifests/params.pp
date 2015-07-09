@@ -43,7 +43,7 @@ class unattended_upgrades::params {
                         '${distro_id} {$distro_codename}-updates',] #lint:ignore:single_quote_string_with_variables
     }
     default: {
-      warn('Please explicitly specify unattended_upgrades::legacy_origin and unattended_upgrades::origins')
+      warning('Please explicitly specify unattended_upgrades::legacy_origin and unattended_upgrades::origins')
     }
   }
 }
