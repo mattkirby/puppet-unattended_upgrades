@@ -23,7 +23,7 @@ class unattended_upgrades::params {
   }
 
   case $xfacts['lsbdistid'] {
-    'debian': {
+    /(?i)[d]ebian/: {
       case $xfacts['lsbdistcodename'] {
         'squeeze': {
           $legacy_origin = true
@@ -43,7 +43,7 @@ class unattended_upgrades::params {
                         '${distro_id} {$distro_codename}-updates',] #lint:ignore:single_quote_string_with_variables
     }
     default: {
-      fail('Please explicitly specify unattended_upgrades::legacy_origin and unattended_upgrades::origins')
+      warn('Please explicitly specify unattended_upgrades::legacy_origin and unattended_upgrades::origins')
     }
   }
 }
